@@ -1,3 +1,7 @@
+using FizzBuzzProject;
+using System.Threading.Tasks;
+using Xunit;
+
 namespace FizzBuzzProject.Tests
 {
     public class FizzBuzzServiceTests
@@ -10,30 +14,30 @@ namespace FizzBuzzProject.Tests
         }
 
         [Fact]
-        public void Execute_ReturnsFizzForMultiplesOfThree()
+        public async Task Execute_ReturnsFizzForMultiplesOfThree()
         {
             // Act
-            var result = _fizzBuzzService.Execute(3, 3);
+            var result = await _fizzBuzzService.ExecuteAsync(3, 3);
 
             // Assert
             Assert.Equal($"Fizz{Environment.NewLine}", result);
         }
 
         [Fact]
-        public void Execute_ReturnsBuzzForMultiplesOfFive()
+        public async Task Execute_ReturnsBuzzForMultiplesOfFive()
         {
             // Act
-            var result = _fizzBuzzService.Execute(5, 5);
+            var result = await _fizzBuzzService.ExecuteAsync(5, 5);
 
             // Assert
             Assert.Equal($"Buzz{Environment.NewLine}", result);
         }
 
         [Fact]
-        public void Execute_ReturnsFizzBuzzForMultiplesOfThreeAndFive()
+        public async Task Execute_ReturnsFizzBuzzForMultiplesOfThreeAndFive()
         {
             // Act
-            var result = _fizzBuzzService.Execute(15, 15);
+            var result = await _fizzBuzzService.ExecuteAsync(15, 15);
 
             // Assert
             Assert.Equal($"FizzBuzz{Environment.NewLine}", result);
@@ -43,10 +47,10 @@ namespace FizzBuzzProject.Tests
         [InlineData(1)]
         [InlineData(2)]
         [InlineData(4)]
-        public void Execute_ReturnsNumberForNonMultiplesOfThreeAndFive(int number)
+        public async Task Execute_ReturnsNumberForNonMultiplesOfThreeAndFive(int number)
         {
             // Act
-            var result = _fizzBuzzService.Execute(number, number);
+            var result = await _fizzBuzzService.ExecuteAsync(number, number);
 
             // Assert
             Assert.Equal($"{number}{Environment.NewLine}", result);

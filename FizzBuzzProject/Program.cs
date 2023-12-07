@@ -4,7 +4,7 @@ namespace FizzBuzzProject
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             // Configure Serilog for logging
             Log.Logger = new LoggerConfiguration()
@@ -18,14 +18,17 @@ namespace FizzBuzzProject
             // Run an infinite loop to show the menu continuously until the user decides to exit
             while (true)
             {
+                // Display the application menu
                 Console.WriteLine("\nFizzBuzz Application Menu:");
                 Console.WriteLine("1. Run FizzBuzz");
                 Console.WriteLine("2. View Instructions");
                 Console.WriteLine("3. Exit");
                 Console.Write("Select an option: ");
 
+                // Read the user's option
                 string? option = Console.ReadLine(); // Allow 'option' to be null
 
+                // If the user didn't enter anything, show a warning and skip the current iteration
                 if (option is null)
                 {
                     Log.Warning("No input received");
@@ -34,10 +37,12 @@ namespace FizzBuzzProject
 
                 try
                 {
+
+                    // Process the user's option
                     switch (option)
                     {
                         case "1":
-                            RunFizzBuzz();
+                           await RunFizzBuzzAsync();
                             break;
                         case "2":
                             DisplayInstructions();
@@ -53,12 +58,13 @@ namespace FizzBuzzProject
                 }
                 catch (Exception ex)
                 {
+                    // Log any errors that occur during the processing of the user's request
                     Log.Error(ex, "An error occurred while processing your request");
                 }
             }
         }
 
-        private static void RunFizzBuzz()
+        private static async Task RunFizzBuzzAsync()
         {
             Console.Write("Enter start number: ");
             int start = Convert.ToInt32(Console.ReadLine());
@@ -66,12 +72,13 @@ namespace FizzBuzzProject
             int end = Convert.ToInt32(Console.ReadLine());
 
             FizzBuzzService fizzBuzz = new FizzBuzzService();
-            string output = fizzBuzz.Execute(start, end);
+            string output = await fizzBuzz.ExecuteAsync(start, end);
             Console.WriteLine(output);
         }
 
         private static void DisplayInstructions()
         {
+            // Display the instructions for the FizzBuzzPlus algorithm
             Console.WriteLine("\nFizzBuzz Instructions:");
             Console.WriteLine("- Enter a range of numbers (start and end).");
             Console.WriteLine("- For multiples of 3, 'Fizz' will be printed.");
