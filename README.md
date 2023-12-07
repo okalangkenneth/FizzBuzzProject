@@ -1,20 +1,21 @@
-# FizzBuzzPlus Project
+# FizzBuzz Project
 
 ## Overview
-The FizzBuzzPlus project extends the classic FizzBuzz logic with additional features, showcasing advanced programming concepts in C#. It iterates through numbers from 1 to 100 and applies modified FizzBuzz rules:
-- Print "Fizz" for numbers that are multiples of 3 or contain 3.
-- Print "Buzz" for numbers that are multiples of 5 or contain 5.
-- Print a combination of "FizzBuzz" for numbers meeting both criteria above.
-- Print the number itself if none of the criteria are met.
-This project incorporates user interaction, logging, error handling, input validation, and unit testing, providing a comprehensive demonstration of various software development practices.
+The FizzBuzz project is an advanced implementation of the classic FizzBuzz problem in C#. It demonstrates not only basic programming concepts but also incorporates modern development practices and features. This project iterates through numbers from 1 to 100 and applies the classic FizzBuzz rules:
+- Print "Fizz" for numbers that are multiples of 3.
+- Print "Buzz" for numbers that are multiples of 5.
+- Print "FizzBuzz" for numbers that are multiples of both 3 and 5.
+- Print the number itself for all other numbers.
+
+The project includes asynchronous programming, user interaction, logging, error handling, input validation, and unit testing, making it a comprehensive example for learning and demonstration purposes.
 
 ## Features
-- **User Interaction**: Console-based UI for user input and interaction.
-- **Logging**: Integrated with Serilog for detailed logging of application events and errors.
-- **Error Handling and Validation**: Robust error handling and input validation for a smooth user experience.
-- **Unit Testing**: Includes unit tests using xUnit to ensure the correctness of the logic.
-- **XML Documentation**: Well-documented codebase for maintainability.
-- **Asynchronous Programming**: Demonstrates the use of async/await for efficient operations.
+- **Asynchronous Programming**: Demonstrates the use of async/await for potential I/O-bound operations.
+- **User Interaction**: Interactive console-based UI for user input and interaction.
+- **Logging**: Integrated with Serilog for detailed event and error logging.
+- **Error Handling and Input Validation**: Robust error handling and validation for user inputs.
+- **Unit Testing**: Includes unit tests using xUnit to ensure the correctness of the FizzBuzz logic.
+- **XML Documentation**: Well-documented codebase for easy understanding and maintenance.
 
 ## Requirements
 - .NET 5.0 or later (recommended for better support of recent features)
@@ -32,7 +33,8 @@ To run the unit tests:
 2. Run the command `dotnet test`.
 
 ## Contributing
-Contributions are welcome to enhance the project's functionality or demonstrate additional .NET features. Please open an issue or a pull request with your proposed changes.
+We welcome contributions that enhance the project's functionality or demonstrate additional .NET features. Please feel free to open an issue or a pull request with your proposed changes.
 
 ## License
 [MIT License](https://choosealicense.com/licenses/mit/)
+
